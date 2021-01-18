@@ -27,6 +27,8 @@ public Optional<User> findUserById(String userId)
 }
 ```
 
+---
+
 ### 2. ```Optional.get( )``` 사용을 피하되 사용시에는 값의 존재여부를 꼭 확인하자
 #### 잘못된 방법 : 값의 존재 여부를 확인하지 않고 ```get( )```을 사용
 ```java
@@ -59,12 +61,15 @@ User user = optional.orElseGet(User::new);
 ```orElseGet( )```은 ```Optional```이 비어있는 경우에만 람다식이 실행되기때문에 생성자가 호출되지 않는다.
 
 그러므로 값이 비싼 객체를 생성해야할 경우 ```orElseGet( )```을 사용하는 것이 바람직하다.
+
+---
 ### 3. 값이 있는 경우에 값을 이용하는 동작만이 필요하다면 ```ifPresent( )```를 활용하자
 ```java
 userService.findUserById("test")
            .ifPresent(user -> System.out.println(user.getName( )));
 ```
 
+---
 ### 4. ```Optional```을 반환값을 제외하고 사용하지 말자  
 불필요하게 ```Optional```을 사용하는 경우를 줄이자. 과용은 언제나 해롭다.
 
@@ -102,6 +107,7 @@ public List<User> findUserById(String id) // O
 }
 ```
 
+---
 ### 5. 원시타입에는 특화된 ```Optional```타입을 사용하자
 ```Optional```을 사용할때에 비해서 오버헤드가 줄어드는 장점이 있다.
 ```java
@@ -110,6 +116,7 @@ OptionalLong   optionalLong   = OptionalLong.of(2L);
 OptionalDouble optionalDouble = OptionalDouble.empty( );
 ```
 
+---
 ### 6. ```Optional``` 내부의 값을 비교할때는 값을 꺼낼 필요 없이 ```equals( )```를 사용하자
 ```Optional```의 동치성은 내부의 값이 결정하도록 구현되어 있다.
 ```java
@@ -125,5 +132,6 @@ user1.get( ).equals(user2.get( ));
 user1.equals(user2);
 ```
 
+---
 ### 7. ```map( )```, ```flatMap( )```, ```filter( )```를 사용하여 함수형 스타일로 코드를 작성해보자
 ```Optional```을 사용할 때 함수형 프로그래밍을 사용하면 가독성이 좋아지는 경우가 많다.
