@@ -55,6 +55,8 @@ Objects.requireNonNullElse(T obj, Supplier<? extends T> supplier)
 
 Optional
 ---
+관련 글 : [Optional 올바르게 사용하기](https://github.com/vrang-v/About-Java/blob/main/Optional%20%EC%98%AC%EB%B0%94%EB%A5%B4%EA%B2%8C%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)  
+
 optional 관련 주의사항
 - 절대로 ```Optional``` 변수와 반환값에 ```null```을 사용하지 말 것
 
