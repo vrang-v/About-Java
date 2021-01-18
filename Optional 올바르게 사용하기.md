@@ -65,7 +65,10 @@ userService.findUserById("test")
            .ifPresent(user -> System.out.println(user.getName( )));
 ```
 
-### 4. ```Optional```을 반환값을 제외하고 사용하지 말자
+### 4. ```Optional```을 반환값을 제외하고 사용하지 말자  
+불필요하게 ```Optional```을 사용하는 경우를 줄이자. 과용은 언제나 해롭다.
+
+```Optional```을 사용하지 않고 가독성이 더 좋은 코드를 충분히 만들어낼 수 있다.
 - 클래스 필드
 ```java
 class User
